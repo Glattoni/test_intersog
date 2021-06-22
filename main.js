@@ -31,8 +31,11 @@ class StringMathOperations {
     if (str.includes('(')) {
       const openingParanthese = str.indexOf('(') + 1;
       const closingParanthese = str.indexOf(')');
-      const first = str.slice(openingParanthese, closingParanthese);
-      const chunks = first.match(/[*+]?[a-z0-9]*/g);
+      const paranthesesExpression = str.slice(
+        openingParanthese,
+        closingParanthese
+      );
+      const chunks = paranthesesExpression.match(/[*+]?[a-z0-9]*/g);
       chunks.map((item, index, array) => getResult(item, index, array));
     }
     const chunks = str.match(/[*+]?[a-z0-9]*/g);
